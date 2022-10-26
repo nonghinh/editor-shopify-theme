@@ -43,12 +43,12 @@ export const setLoadingFiles = (status) => {
 export const getAsset = (key) => {
     return (dispatch) => {
         dispatch(setLoadingAsset(true));
+
         return axios.get(`${BASE_URL}/api/asset?key=${key}`)
             .then(res => {
                 dispatch(setLoadingAsset(false));
 
                 if (res.data.success){
-                    console.log('--uuu---')
                     dispatch(setAsset(key, res.data.value));
                 }
             })

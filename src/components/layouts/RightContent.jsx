@@ -16,7 +16,7 @@ export default function RightContent(){
 
     const dispatch = useDispatch();
     const {search} = useLocation();
-    console.log(search)
+
     const url = useMemo(() => new URLSearchParams(search), [search]);
     const assetKey = url.get('asset');
 

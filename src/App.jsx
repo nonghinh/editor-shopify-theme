@@ -44,7 +44,7 @@ function App() {
 }
 store.subscribe(() => {
     var str = store.getState();
-    console.log(str)
+    //console.log(str)
 });
 
 export default App

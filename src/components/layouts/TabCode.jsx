@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {deleteTab, setTabActive} from "../../actions";
 import {IconX} from "../../icons";
+import {PATH_PREFIX} from "../../config";
 
 export default function TabCode() {
     const {tab_active, asset_tabs, loading_asset} = useSelector(state => ({
@@ -21,7 +22,7 @@ export default function TabCode() {
     return <div className="tab-code">
         <div className="tab-list">
             {asset_tabs.map((item, index) => <div className={`tab-item ${item.key == tab_active ? 'active' : ''}`} key={index}>
-                <Link to={`/?asset=${item.key}`}
+                <Link to={`${PATH_PREFIX}/?asset=${item.key}`}
                       onClick={() => handleClickTab(item.key)}>{getNameByKey(item.key)}</Link>
                 <button class={'button-delete-tab'} onClick={()=>handleDeleteTab(item.key)}><i className="icon-svg"><IconX /></i></button>
             </div>)}

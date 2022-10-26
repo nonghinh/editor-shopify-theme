@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {getFiles} from "../actions";
 import {Link} from "react-router-dom";
+import {PATH_PREFIX} from "../config";
 
 export default function ListFile(){
     const {files, loading_files, tab_active} = useSelector(state => ({
@@ -39,7 +40,7 @@ export default function ListFile(){
             </a>
             <ul className="sub-files">
                 {item.files.map((fileItem, i) => <li className={`file-item ${tab_active == item.name.toLowerCase()+'/'+fileItem ? 'active' : ''}`} key={i}>
-                    <Link to={`/?asset=${item.name.toLowerCase()}/${fileItem}`} className="file-name">
+                    <Link to={`${PATH_PREFIX}/?asset=${item.name.toLowerCase()}/${fileItem}`} className="file-name">
                         <i className="icon-svg"><IconCodeSlash /></i> {fileItem}
                     </Link>
                 </li>)}
